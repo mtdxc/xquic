@@ -31,604 +31,50 @@ xqc_log_event(log, 事件类型, 事件相关参数);
 
 现有qlog事件相关参数如下（详见xqc_log_event_callback.h）：
 
-<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=547
- style='width:410.4pt;border-collapse:collapse;border:none;mso-border-alt:solid #D9D9D9 .75pt;
- mso-yfti-tbllook:1184;mso-padding-alt:0cm 5.4pt 0cm 5.4pt'>
- <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;height:24.25pt'>
-  <td width=170 style='width:127.2pt;border:solid #D9D9D9 1.0pt;mso-border-alt:
-  solid #D9D9D9 .75pt;padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal align=center style='text-align:center'>事件类型</p>
-  </td>
-  <td width=378 style='width:283.2pt;border:solid #D9D9D9 1.0pt;border-left:
-  none;mso-border-left-alt:solid #D9D9D9 .75pt;mso-border-alt:solid #D9D9D9 .75pt;
-  padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal align=center style='text-align:center'>事件相关参数</p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:1;height:24.25pt'>
-  <td width=170 style='width:127.2pt;border:solid #D9D9D9 1.0pt;border-top:
-  none;mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-alt:solid #D9D9D9 .75pt;
-  padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>CON_CONNECTION_STARTED</span></p>
-  </td>
-  <td width=378 style='width:283.2pt;border-top:none;border-left:none;
-  border-bottom:solid #D9D9D9 1.0pt;border-right:solid #D9D9D9 1.0pt;
-  mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-left-alt:solid #D9D9D9 .75pt;
-  mso-border-alt:solid #D9D9D9 .75pt;padding:.75pt .75pt .75pt .75pt;
-  height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>xqc_connection_t *conn, xqc_int_t local</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:2;height:24.25pt'>
-  <td width=170 style='width:127.2pt;border:solid #D9D9D9 1.0pt;border-top:
-  none;mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-alt:solid #D9D9D9 .75pt;
-  padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>CON_CONNECTION_CLOSED</span></p>
-  </td>
-  <td width=378 style='width:283.2pt;border-top:none;border-left:none;
-  border-bottom:solid #D9D9D9 1.0pt;border-right:solid #D9D9D9 1.0pt;
-  mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-left-alt:solid #D9D9D9 .75pt;
-  mso-border-alt:solid #D9D9D9 .75pt;padding:.75pt .75pt .75pt .75pt;
-  height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>xqc_connection_t *conn</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:3;height:24.25pt'>
-  <td width=170 style='width:127.2pt;border:solid #D9D9D9 1.0pt;border-top:
-  none;mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-alt:solid #D9D9D9 .75pt;
-  padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>CON_CONNECTION_ID_UPDATED</span></p>
-  </td>
-  <td width=378 style='width:283.2pt;border-top:none;border-left:none;
-  border-bottom:solid #D9D9D9 1.0pt;border-right:solid #D9D9D9 1.0pt;
-  mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-left-alt:solid #D9D9D9 .75pt;
-  mso-border-alt:solid #D9D9D9 .75pt;padding:.75pt .75pt .75pt .75pt;
-  height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>xqc_connection_t *conn</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:4;height:24.25pt'>
-  <td width=170 style='width:127.2pt;border:solid #D9D9D9 1.0pt;border-top:
-  none;mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-alt:solid #D9D9D9 .75pt;
-  padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>CON_CONNECTION_STATE_UPDATED</span></p>
-  </td>
-  <td width=378 style='width:283.2pt;border-top:none;border-left:none;
-  border-bottom:solid #D9D9D9 1.0pt;border-right:solid #D9D9D9 1.0pt;
-  mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-left-alt:solid #D9D9D9 .75pt;
-  mso-border-alt:solid #D9D9D9 .75pt;padding:.75pt .75pt .75pt .75pt;
-  height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>xqc_connection_t *conn</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:5;height:24.25pt'>
-  <td width=170 style='width:127.2pt;border:solid #D9D9D9 1.0pt;border-top:
-  none;mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-alt:solid #D9D9D9 .75pt;
-  padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>SEC_KEY_UPDATED</span></p>
-  </td>
-  <td width=378 style='width:283.2pt;border-top:none;border-left:none;
-  border-bottom:solid #D9D9D9 1.0pt;border-right:solid #D9D9D9 1.0pt;
-  mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-left-alt:solid #D9D9D9 .75pt;
-  mso-border-alt:solid #D9D9D9 .75pt;padding:.75pt .75pt .75pt .75pt;
-  height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>xqc_engine_ssl_config_t ssl_config,
-  xqc_int_t local</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:6;height:24.25pt'>
-  <td width=170 style='width:127.2pt;border:solid #D9D9D9 1.0pt;border-top:
-  none;mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-alt:solid #D9D9D9 .75pt;
-  padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>TRA_VERSION_INFORMATION</span></p>
-  </td>
-  <td width=378 style='width:283.2pt;border-top:none;border-left:none;
-  border-bottom:solid #D9D9D9 1.0pt;border-right:solid #D9D9D9 1.0pt;
-  mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-left-alt:solid #D9D9D9 .75pt;
-  mso-border-alt:solid #D9D9D9 .75pt;padding:.75pt .75pt .75pt .75pt;
-  height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>uint32_t local_count, uint32_t *local_version,
-  uint32_t remote_count, uint32_t *remote_version, uint32_t <span class=GramE>choose</span></span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:7;height:24.25pt'>
-  <td width=170 style='width:127.2pt;border:solid #D9D9D9 1.0pt;border-top:
-  none;mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-alt:solid #D9D9D9 .75pt;
-  padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>TRA_ALPN_INFORMATION</span></p>
-  </td>
-  <td width=378 style='width:283.2pt;border-top:none;border-left:none;
-  border-bottom:solid #D9D9D9 1.0pt;border-right:solid #D9D9D9 1.0pt;
-  mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-left-alt:solid #D9D9D9 .75pt;
-  mso-border-alt:solid #D9D9D9 .75pt;padding:.75pt .75pt .75pt .75pt;
-  height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>size_t local_count, uint8_t *local_alpn,
-  size_t remote_count, const uint8_t *remote_alpn, size_t alpn_len, const
-  unsigned char *alpn</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:8;height:24.25pt'>
-  <td width=170 style='width:127.2pt;border:solid #D9D9D9 1.0pt;border-top:
-  none;mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-alt:solid #D9D9D9 .75pt;
-  padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>TRA_PARAMETERS_SET</span></p>
-  </td>
-  <td width=378 style='width:283.2pt;border-top:none;border-left:none;
-  border-bottom:solid #D9D9D9 1.0pt;border-right:solid #D9D9D9 1.0pt;
-  mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-left-alt:solid #D9D9D9 .75pt;
-  mso-border-alt:solid #D9D9D9 .75pt;padding:.75pt .75pt .75pt .75pt;
-  height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>xqc_connection_t *conn, xqc_int_t local</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:9;height:24.25pt'>
-  <td width=170 style='width:127.2pt;border:solid #D9D9D9 1.0pt;border-top:
-  none;mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-alt:solid #D9D9D9 .75pt;
-  padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>TRA_PACKET_SENT</span></p>
-  </td>
-  <td width=378 style='width:283.2pt;border-top:none;border-left:none;
-  border-bottom:solid #D9D9D9 1.0pt;border-right:solid #D9D9D9 1.0pt;
-  mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-left-alt:solid #D9D9D9 .75pt;
-  mso-border-alt:solid #D9D9D9 .75pt;padding:.75pt .75pt .75pt .75pt;
-  height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>xqc_packet_out_t *packet_out</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:10;height:24.25pt'>
-  <td width=170 style='width:127.2pt;border:solid #D9D9D9 1.0pt;border-top:
-  none;mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-alt:solid #D9D9D9 .75pt;
-  padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>TRA_PACKET_RECEIVED</span></p>
-  </td>
-  <td width=378 style='width:283.2pt;border-top:none;border-left:none;
-  border-bottom:solid #D9D9D9 1.0pt;border-right:solid #D9D9D9 1.0pt;
-  mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-left-alt:solid #D9D9D9 .75pt;
-  mso-border-alt:solid #D9D9D9 .75pt;padding:.75pt .75pt .75pt .75pt;
-  height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>xqc_packet_in_t *packet_in</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:11;height:24.25pt'>
-  <td width=170 style='width:127.2pt;border:solid #D9D9D9 1.0pt;border-top:
-  none;mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-alt:solid #D9D9D9 .75pt;
-  padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>TRA_PACKET_BUFFERED</span></p>
-  </td>
-  <td width=378 style='width:283.2pt;border-top:none;border-left:none;
-  border-bottom:solid #D9D9D9 1.0pt;border-right:solid #D9D9D9 1.0pt;
-  mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-left-alt:solid #D9D9D9 .75pt;
-  mso-border-alt:solid #D9D9D9 .75pt;padding:.75pt .75pt .75pt .75pt;
-  height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>xqc_packet_in_t *packet_in</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:12;height:24.25pt'>
-  <td width=170 style='width:127.2pt;border:solid #D9D9D9 1.0pt;border-top:
-  none;mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-alt:solid #D9D9D9 .75pt;
-  padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>TRA_PACKETS_ACKED</span></p>
-  </td>
-  <td width=378 style='width:283.2pt;border-top:none;border-left:none;
-  border-bottom:solid #D9D9D9 1.0pt;border-right:solid #D9D9D9 1.0pt;
-  mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-left-alt:solid #D9D9D9 .75pt;
-  mso-border-alt:solid #D9D9D9 .75pt;padding:.75pt .75pt .75pt .75pt;
-  height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>xqc_packet_in_t *packet_in,
-  xqc_packet_number_t high, xqc_packet_number_t low</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:13;height:24.25pt'>
-  <td width=170 style='width:127.2pt;border:solid #D9D9D9 1.0pt;border-top:
-  none;mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-alt:solid #D9D9D9 .75pt;
-  padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>TRA_DATAGRAMS_SENT</span></p>
-  </td>
-  <td width=378 style='width:283.2pt;border-top:none;border-left:none;
-  border-bottom:solid #D9D9D9 1.0pt;border-right:solid #D9D9D9 1.0pt;
-  mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-left-alt:solid #D9D9D9 .75pt;
-  mso-border-alt:solid #D9D9D9 .75pt;padding:.75pt .75pt .75pt .75pt;
-  height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>ssize_t size</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:14;height:24.25pt'>
-  <td width=170 style='width:127.2pt;border:solid #D9D9D9 1.0pt;border-top:
-  none;mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-alt:solid #D9D9D9 .75pt;
-  padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>TRA_DATAGRAMS_RECEIVED</span></p>
-  </td>
-  <td width=378 style='width:283.2pt;border-top:none;border-left:none;
-  border-bottom:solid #D9D9D9 1.0pt;border-right:solid #D9D9D9 1.0pt;
-  mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-left-alt:solid #D9D9D9 .75pt;
-  mso-border-alt:solid #D9D9D9 .75pt;padding:.75pt .75pt .75pt .75pt;
-  height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>ssize_t size</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:15;height:24.25pt'>
-  <td width=170 style='width:127.2pt;border:solid #D9D9D9 1.0pt;border-top:
-  none;mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-alt:solid #D9D9D9 .75pt;
-  padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>TRA_STREAM_STATE_UPDATED</span></p>
-  </td>
-  <td width=378 style='width:283.2pt;border-top:none;border-left:none;
-  border-bottom:solid #D9D9D9 1.0pt;border-right:solid #D9D9D9 1.0pt;
-  mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-left-alt:solid #D9D9D9 .75pt;
-  mso-border-alt:solid #D9D9D9 .75pt;padding:.75pt .75pt .75pt .75pt;
-  height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>xqc_stream_t *stream, xqc_int_t
-  stream_type, xqc_int_t state</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:16;height:24.25pt'>
-  <td width=170 style='width:127.2pt;border:solid #D9D9D9 1.0pt;border-top:
-  none;mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-alt:solid #D9D9D9 .75pt;
-  padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>TRA_FRAMES_PROCESSED</span></p>
-  </td>
-  <td width=378 style='width:283.2pt;border-top:none;border-left:none;
-  border-bottom:solid #D9D9D9 1.0pt;border-right:solid #D9D9D9 1.0pt;
-  mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-left-alt:solid #D9D9D9 .75pt;
-  mso-border-alt:solid #D9D9D9 .75pt;padding:.75pt .75pt .75pt .75pt;
-  height:24.25pt'>
-  <p class=MsoNormal>根据<span lang=EN-US>frame</span>类型不同，传入参数不同</p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:17;height:24.25pt'>
-  <td width=170 style='width:127.2pt;border:solid #D9D9D9 1.0pt;border-top:
-  none;mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-alt:solid #D9D9D9 .75pt;
-  padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>REC_PARAMETERS_SET</span></p>
-  </td>
-  <td width=378 style='width:283.2pt;border-top:none;border-left:none;
-  border-bottom:solid #D9D9D9 1.0pt;border-right:solid #D9D9D9 1.0pt;
-  mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-left-alt:solid #D9D9D9 .75pt;
-  mso-border-alt:solid #D9D9D9 .75pt;padding:.75pt .75pt .75pt .75pt;
-  height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>xqc_send_ctl_t *ctl</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:18;height:24.25pt'>
-  <td width=170 style='width:127.2pt;border:solid #D9D9D9 1.0pt;border-top:
-  none;mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-alt:solid #D9D9D9 .75pt;
-  padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>REC_METRICS_UPDATED</span></p>
-  </td>
-  <td width=378 style='width:283.2pt;border-top:none;border-left:none;
-  border-bottom:solid #D9D9D9 1.0pt;border-right:solid #D9D9D9 1.0pt;
-  mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-left-alt:solid #D9D9D9 .75pt;
-  mso-border-alt:solid #D9D9D9 .75pt;padding:.75pt .75pt .75pt .75pt;
-  height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>xqc_send_ctl_t *ctl</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:19;height:24.25pt'>
-  <td width=170 style='width:127.2pt;border:solid #D9D9D9 1.0pt;border-top:
-  none;mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-alt:solid #D9D9D9 .75pt;
-  padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>REC_CONGESTION_STATE_UPDATED</span></p>
-  </td>
-  <td width=378 style='width:283.2pt;border-top:none;border-left:none;
-  border-bottom:solid #D9D9D9 1.0pt;border-right:solid #D9D9D9 1.0pt;
-  mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-left-alt:solid #D9D9D9 .75pt;
-  mso-border-alt:solid #D9D9D9 .75pt;padding:.75pt .75pt .75pt .75pt;
-  height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>char *new_state</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:20;height:24.25pt'>
-  <td width=170 style='width:127.2pt;border:solid #D9D9D9 1.0pt;border-top:
-  none;mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-alt:solid #D9D9D9 .75pt;
-  padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>REC_LOSS_TIMER_UPDATED</span></p>
-  </td>
-  <td width=378 style='width:283.2pt;border-top:none;border-left:none;
-  border-bottom:solid #D9D9D9 1.0pt;border-right:solid #D9D9D9 1.0pt;
-  mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-left-alt:solid #D9D9D9 .75pt;
-  mso-border-alt:solid #D9D9D9 .75pt;padding:.75pt .75pt .75pt .75pt;
-  height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>xqc_send_ctl_t *ctl,</span></p>
-  <p class=MsoNormal><span lang=EN-US>xqc_usec_t <span class=GramE>inter</span>_time,
-  xqc_int_t type, xqc_int_t event</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:21;height:24.25pt'>
-  <td width=170 style='width:127.2pt;border:solid #D9D9D9 1.0pt;border-top:
-  none;mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-alt:solid #D9D9D9 .75pt;
-  padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>REC_PACKET_LOST</span></p>
-  </td>
-  <td width=378 style='width:283.2pt;border-top:none;border-left:none;
-  border-bottom:solid #D9D9D9 1.0pt;border-right:solid #D9D9D9 1.0pt;
-  mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-left-alt:solid #D9D9D9 .75pt;
-  mso-border-alt:solid #D9D9D9 .75pt;padding:.75pt .75pt .75pt .75pt;
-  height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>xqc_packet_out_t *packet_out</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:22;height:24.25pt'>
-  <td width=170 style='width:127.2pt;border:solid #D9D9D9 1.0pt;border-top:
-  none;mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-alt:solid #D9D9D9 .75pt;
-  padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>HTTP_PARAMETERS_SET</span></p>
-  </td>
-  <td width=378 style='width:283.2pt;border-top:none;border-left:none;
-  border-bottom:solid #D9D9D9 1.0pt;border-right:solid #D9D9D9 1.0pt;
-  mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-left-alt:solid #D9D9D9 .75pt;
-  mso-border-alt:solid #D9D9D9 .75pt;padding:.75pt .75pt .75pt .75pt;
-  height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>xqc_h3_conn_t *h3_conn, xqc_int_t local</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:23;height:24.25pt'>
-  <td width=170 style='width:127.2pt;border:solid #D9D9D9 1.0pt;border-top:
-  none;mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-alt:solid #D9D9D9 .75pt;
-  padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>HTTP_PARAMETERS_RESTORED</span></p>
-  </td>
-  <td width=378 style='width:283.2pt;border-top:none;border-left:none;
-  border-bottom:solid #D9D9D9 1.0pt;border-right:solid #D9D9D9 1.0pt;
-  mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-left-alt:solid #D9D9D9 .75pt;
-  mso-border-alt:solid #D9D9D9 .75pt;padding:.75pt .75pt .75pt .75pt;
-  height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>xqc_h3_conn_t *h3_conn</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:24;height:24.25pt'>
-  <td width=170 style='width:127.2pt;border:solid #D9D9D9 1.0pt;border-top:
-  none;mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-alt:solid #D9D9D9 .75pt;
-  padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>HTTP_STREAM_TYPE_SET</span></p>
-  </td>
-  <td width=378 style='width:283.2pt;border-top:none;border-left:none;
-  border-bottom:solid #D9D9D9 1.0pt;border-right:solid #D9D9D9 1.0pt;
-  mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-left-alt:solid #D9D9D9 .75pt;
-  mso-border-alt:solid #D9D9D9 .75pt;padding:.75pt .75pt .75pt .75pt;
-  height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>xqc_h3_stream_t *h3_stream, xqc_int_t
-  local</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:25;height:24.25pt'>
-  <td width=170 style='width:127.2pt;border:solid #D9D9D9 1.0pt;border-top:
-  none;mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-alt:solid #D9D9D9 .75pt;
-  padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>HTTP_FRAME_CREATED</span></p>
-  </td>
-  <td width=378 style='width:283.2pt;border-top:none;border-left:none;
-  border-bottom:solid #D9D9D9 1.0pt;border-right:solid #D9D9D9 1.0pt;
-  mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-left-alt:solid #D9D9D9 .75pt;
-  mso-border-alt:solid #D9D9D9 .75pt;padding:.75pt .75pt .75pt .75pt;
-  height:24.25pt'>
-  <p class=MsoNormal>根据<span lang=EN-US>frame</span>类型不同，传入参数不同</p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:26;height:24.25pt'>
-  <td width=170 style='width:127.2pt;border:solid #D9D9D9 1.0pt;border-top:
-  none;mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-alt:solid #D9D9D9 .75pt;
-  padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>HTTP_FRAME_PARSED</span></p>
-  </td>
-  <td width=378 style='width:283.2pt;border-top:none;border-left:none;
-  border-bottom:solid #D9D9D9 1.0pt;border-right:solid #D9D9D9 1.0pt;
-  mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-left-alt:solid #D9D9D9 .75pt;
-  mso-border-alt:solid #D9D9D9 .75pt;padding:.75pt .75pt .75pt .75pt;
-  height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>xqc_h3_stream_t *h3_stream</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:27;height:24.25pt'>
-  <td width=170 style='width:127.2pt;border:solid #D9D9D9 1.0pt;border-top:
-  none;mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-alt:solid #D9D9D9 .75pt;
-  padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>HTTP_SETTING_PARSED</span></p>
-  </td>
-  <td width=378 style='width:283.2pt;border-top:none;border-left:none;
-  border-bottom:solid #D9D9D9 1.0pt;border-right:solid #D9D9D9 1.0pt;
-  mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-left-alt:solid #D9D9D9 .75pt;
-  mso-border-alt:solid #D9D9D9 .75pt;padding:.75pt .75pt .75pt .75pt;
-  height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>uint64_t identifier, uint64_t value</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:28;height:24.25pt'>
-  <td width=170 style='width:127.2pt;border:solid #D9D9D9 1.0pt;border-top:
-  none;mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-alt:solid #D9D9D9 .75pt;
-  padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>QPACK_STATE_UPDATED</span></p>
-  </td>
-  <td width=378 style='width:283.2pt;border-top:none;border-left:none;
-  border-bottom:solid #D9D9D9 1.0pt;border-right:solid #D9D9D9 1.0pt;
-  mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-left-alt:solid #D9D9D9 .75pt;
-  mso-border-alt:solid #D9D9D9 .75pt;padding:.75pt .75pt .75pt .75pt;
-  height:24.25pt'>
-  <p class=MsoNormal>根据类型属于编码器<span lang=EN-US>/</span>解码器，传入参数不同</p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:29;height:24.25pt'>
-  <td width=170 style='width:127.2pt;border:solid #D9D9D9 1.0pt;border-top:
-  none;mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-alt:solid #D9D9D9 .75pt;
-  padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>QPACK_STREAM_STATE_UPDATED</span></p>
-  </td>
-  <td width=378 style='width:283.2pt;border-top:none;border-left:none;
-  border-bottom:solid #D9D9D9 1.0pt;border-right:solid #D9D9D9 1.0pt;
-  mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-left-alt:solid #D9D9D9 .75pt;
-  mso-border-alt:solid #D9D9D9 .75pt;padding:.75pt .75pt .75pt .75pt;
-  height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>xqc_h3_stream_t *h3_stream</span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:30;height:24.25pt'>
-  <td width=170 style='width:127.2pt;border:solid #D9D9D9 1.0pt;border-top:
-  none;mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-alt:solid #D9D9D9 .75pt;
-  padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>QPACK_DYNAMIC_TABLE_UPDATED</span></p>
-  </td>
-  <td width=378 style='width:283.2pt;border-top:none;border-left:none;
-  border-bottom:solid #D9D9D9 1.0pt;border-right:solid #D9D9D9 1.0pt;
-  mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-left-alt:solid #D9D9D9 .75pt;
-  mso-border-alt:solid #D9D9D9 .75pt;padding:.75pt .75pt .75pt .75pt;
-  height:24.25pt'>
-  <p class=MsoNormal>根据动态表插入<span lang=EN-US>/</span>删除，传入参数不同</p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:31;height:24.25pt'>
-  <td width=170 style='width:127.2pt;border:solid #D9D9D9 1.0pt;border-top:
-  none;mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-alt:solid #D9D9D9 .75pt;
-  padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>QPACK_HEADERS_ENCODED</span></p>
-  </td>
-  <td width=378 style='width:283.2pt;border-top:none;border-left:none;
-  border-bottom:solid #D9D9D9 1.0pt;border-right:solid #D9D9D9 1.0pt;
-  mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-left-alt:solid #D9D9D9 .75pt;
-  mso-border-alt:solid #D9D9D9 .75pt;padding:.75pt .75pt .75pt .75pt;
-  height:24.25pt'>
-  <p class=MsoNormal>根据<span lang=EN-US>prefix</span>和<span lang=EN-US>header</span>，传入参数不同</p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:32;height:24.25pt'>
-  <td width=170 style='width:127.2pt;border:solid #D9D9D9 1.0pt;border-top:
-  none;mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-alt:solid #D9D9D9 .75pt;
-  padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>QPACK_HEADERS_DECODED</span></p>
-  </td>
-  <td width=378 style='width:283.2pt;border-top:none;border-left:none;
-  border-bottom:solid #D9D9D9 1.0pt;border-right:solid #D9D9D9 1.0pt;
-  mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-left-alt:solid #D9D9D9 .75pt;
-  mso-border-alt:solid #D9D9D9 .75pt;padding:.75pt .75pt .75pt .75pt;
-  height:24.25pt'>
-  <p class=MsoNormal>根据<span lang=EN-US>prefix</span>和<span lang=EN-US>header</span>，传入参数不同</p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:33;height:24.25pt'>
-  <td width=170 style='width:127.2pt;border:solid #D9D9D9 1.0pt;border-top:
-  none;mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-alt:solid #D9D9D9 .75pt;
-  padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>QPACK_INSTRUCTION_CREATED</span></p>
-  </td>
-  <td width=378 style='width:283.2pt;border-top:none;border-left:none;
-  border-bottom:solid #D9D9D9 1.0pt;border-right:solid #D9D9D9 1.0pt;
-  mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-left-alt:solid #D9D9D9 .75pt;
-  mso-border-alt:solid #D9D9D9 .75pt;padding:.75pt .75pt .75pt .75pt;
-  height:24.25pt'>
-  <p class=MsoNormal>根据指令不同，传入参数不同</p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:34;height:24.25pt'>
-  <td width=170 style='width:127.2pt;border:solid #D9D9D9 1.0pt;border-top:
-  none;mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-alt:solid #D9D9D9 .75pt;
-  padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>QPACK_INSTRUCTION_PARSED</span></p>
-  </td>
-  <td width=378 style='width:283.2pt;border-top:none;border-left:none;
-  border-bottom:solid #D9D9D9 1.0pt;border-right:solid #D9D9D9 1.0pt;
-  mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-left-alt:solid #D9D9D9 .75pt;
-  mso-border-alt:solid #D9D9D9 .75pt;padding:.75pt .75pt .75pt .75pt;
-  height:24.25pt'>
-  <p class=MsoNormal>根据指令不同，传入参数不同</p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:35;height:24.25pt'>
-  <td width=170 style='width:127.2pt;border:solid #D9D9D9 1.0pt;border-top:
-  none;mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-alt:solid #D9D9D9 .75pt;
-  padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>GEN_REPORT</span></p>
-  </td>
-  <td width=378 style='width:283.2pt;border-top:none;border-left:none;
-  border-bottom:solid #D9D9D9 1.0pt;border-right:solid #D9D9D9 1.0pt;
-  mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-left-alt:solid #D9D9D9 .75pt;
-  mso-border-alt:solid #D9D9D9 .75pt;padding:.75pt .75pt .75pt .75pt;
-  height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>report</span>级别通用日志打印，类似<span lang=EN-US>printf</span>传入格式化字符串和参数</p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:36;height:24.25pt'>
-  <td width=170 style='width:127.2pt;border:solid #D9D9D9 1.0pt;border-top:
-  none;mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-alt:solid #D9D9D9 .75pt;
-  padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>GEN_FATAL</span></p>
-  </td>
-  <td width=378 style='width:283.2pt;border-top:none;border-left:none;
-  border-bottom:solid #D9D9D9 1.0pt;border-right:solid #D9D9D9 1.0pt;
-  mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-left-alt:solid #D9D9D9 .75pt;
-  mso-border-alt:solid #D9D9D9 .75pt;padding:.75pt .75pt .75pt .75pt;
-  height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>fatal</span>级别通用日志打印，类似<span lang=EN-US>printf</span>传入格式化字符串和参数</p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:37;height:24.25pt'>
-  <td width=170 style='width:127.2pt;border:solid #D9D9D9 1.0pt;border-top:
-  none;mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-alt:solid #D9D9D9 .75pt;
-  padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>GEN_ERROR</span></p>
-  </td>
-  <td width=378 style='width:283.2pt;border-top:none;border-left:none;
-  border-bottom:solid #D9D9D9 1.0pt;border-right:solid #D9D9D9 1.0pt;
-  mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-left-alt:solid #D9D9D9 .75pt;
-  mso-border-alt:solid #D9D9D9 .75pt;padding:.75pt .75pt .75pt .75pt;
-  height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>error</span>级别通用日志打印，类似<span lang=EN-US>printf</span>传入格式化字符串和参数</p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:38;height:24.25pt'>
-  <td width=170 style='width:127.2pt;border:solid #D9D9D9 1.0pt;border-top:
-  none;mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-alt:solid #D9D9D9 .75pt;
-  padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>GEN_WARN</span></p>
-  </td>
-  <td width=378 style='width:283.2pt;border-top:none;border-left:none;
-  border-bottom:solid #D9D9D9 1.0pt;border-right:solid #D9D9D9 1.0pt;
-  mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-left-alt:solid #D9D9D9 .75pt;
-  mso-border-alt:solid #D9D9D9 .75pt;padding:.75pt .75pt .75pt .75pt;
-  height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>warn</span>级别通用日志打印，类似<span lang=EN-US>printf</span>传入格式化字符串和参数</p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:39;height:24.25pt'>
-  <td width=170 style='width:127.2pt;border:solid #D9D9D9 1.0pt;border-top:
-  none;mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-alt:solid #D9D9D9 .75pt;
-  padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>GEN_STATS</span></p>
-  </td>
-  <td width=378 style='width:283.2pt;border-top:none;border-left:none;
-  border-bottom:solid #D9D9D9 1.0pt;border-right:solid #D9D9D9 1.0pt;
-  mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-left-alt:solid #D9D9D9 .75pt;
-  mso-border-alt:solid #D9D9D9 .75pt;padding:.75pt .75pt .75pt .75pt;
-  height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>stats</span>级别通用日志打印，类似<span lang=EN-US>printf</span>传入格式化字符串和参数</p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:40;height:24.25pt'>
-  <td width=170 style='width:127.2pt;border:solid #D9D9D9 1.0pt;border-top:
-  none;mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-alt:solid #D9D9D9 .75pt;
-  padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>GEN_INFO</span></p>
-  </td>
-  <td width=378 style='width:283.2pt;border-top:none;border-left:none;
-  border-bottom:solid #D9D9D9 1.0pt;border-right:solid #D9D9D9 1.0pt;
-  mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-left-alt:solid #D9D9D9 .75pt;
-  mso-border-alt:solid #D9D9D9 .75pt;padding:.75pt .75pt .75pt .75pt;
-  height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>info</span>级别通用日志打印，类似<span lang=EN-US>printf</span>传入格式化字符串和参数</p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:41;mso-yfti-lastrow:yes;height:24.25pt'>
-  <td width=170 style='width:127.2pt;border:solid #D9D9D9 1.0pt;border-top:
-  none;mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-alt:solid #D9D9D9 .75pt;
-  padding:.75pt .75pt .75pt .75pt;height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>GEN_DEBUG</span></p>
-  </td>
-  <td width=378 style='width:283.2pt;border-top:none;border-left:none;
-  border-bottom:solid #D9D9D9 1.0pt;border-right:solid #D9D9D9 1.0pt;
-  mso-border-top-alt:solid #D9D9D9 .75pt;mso-border-left-alt:solid #D9D9D9 .75pt;
-  mso-border-alt:solid #D9D9D9 .75pt;padding:.75pt .75pt .75pt .75pt;
-  height:24.25pt'>
-  <p class=MsoNormal><span lang=EN-US>debug</span>级别通用日志打印，类似<span lang=EN-US>printf</span>传入格式化字符串和参数</p>
-  </td>
- </tr>
-</table>
+事件类型 | 事件相关参数
+--- | --
+CON_CONNECTION_STARTED | xqc_connection_t *conn, xqc_int_t local
+CON_CONNECTION_CLOSED | xqc_connection_t *conn
+CON_CONNECTION_ID_UPDATED | xqc_connection_t *conn
+CON_CONNECTION_STATE_UPDATED | xqc_connection_t *conn
+SEC_KEY_UPDATED | xqc_engine_ssl_config_t ssl_config, xqc_int_t local
+TRA_VERSION_INFORMATION | uint32_t local_count, uint32_t *local_version, uint32_t remote_count, uint32_t *remote_version, uint32_t choose
+TRA_ALPN_INFORMATION | size_t local_count, uint8_t *local_alpn, size_t remote_count, const uint8_t *remote_alpn, size_t alpn_len, const unsigned char *alpn
+TRA_PARAMETERS_SET | xqc_connection_t *conn, xqc_int_t local
+TRA_PACKET_SENT | xqc_packet_out_t *packet_out
+TRA_PACKET_RECEIVED | xqc_packet_in_t *packet_in
+TRA_PACKET_BUFFERED | xqc_packet_in_t *packet_in
+TRA_PACKETS_ACKED | xqc_packet_in_t *packet_in, xqc_packet_number_t high, xqc_packet_number_t low
+TRA_DATAGRAMS_SENT | ssize_t size
+TRA_DATAGRAMS_RECEIVED | ssize_t size
+TRA_STREAM_STATE_UPDATED | xqc_stream_t *stream, xqc_int_t stream_type, xqc_int_t state
+TRA_FRAMES_PROCESSED | 根据frame类型不同，传入参数不同
+REC_PARAMETERS_SET | xqc_send_ctl_t *ctl
+REC_METRICS_UPDATED | xqc_send_ctl_t *ctl
+REC_CONGESTION_STATE_UPDATED | char *new_state
+REC_LOSS_TIMER_UPDATED | xqc_send_ctl_t *ctl, xqc_usec_t inter_time, xqc_int_t type, xqc_int_t event
+REC_PACKET_LOST | xqc_packet_out_t *packet_out
+HTTP_PARAMETERS_SET | xqc_h3_conn_t *h3_conn, xqc_int_t local
+HTTP_PARAMETERS_RESTORED | xqc_h3_conn_t *h3_conn
+HTTP_STREAM_TYPE_SET | xqc_h3_stream_t *h3_stream, xqc_int_t local
+HTTP_FRAME_CREATED | 根据frame类型不同，传入参数不同
+HTTP_FRAME_PARSED | xqc_h3_stream_t *h3_stream
+HTTP_SETTING_PARSED | uint64_t identifier, uint64_t value
+QPACK_STATE_UPDATED | 根据类型属于编码器/解码器，传入参数不同
+QPACK_STREAM_STATE_UPDATED | xqc_h3_stream_t *h3_stream
+QPACK_DYNAMIC_TABLE_UPDATED | 根据动态表插入/删除，传入参数不同
+QPACK_HEADERS_ENCODED | 根据prefix和header，传入参数不同
+QPACK_HEADERS_DECODED | 根据prefix和header，传入参数不同
+QPACK_INSTRUCTION_CREATED | 根据指令不同，传入参数不同
+QPACK_INSTRUCTION_PARSED | 根据指令不同，传入参数不同
+GEN_REPORT | report级别通用日志打印，类似printf传入格式化字符串和参数
+GEN_FATAL | fatal级别通用日志打印，类似printf传入格式化字符串和参数
+GEN_ERROR | error级别通用日志打印，类似printf传入格式化字符串和参数
+GEN_WARN | warn级别通用日志打印，类似printf传入格式化字符串和参数
+GEN_STATS | stats级别通用日志打印，类似printf传入格式化字符串和参数
+GEN_INFO | info级别通用日志打印，类似printf传入格式化字符串和参数
+GEN_DEBUG | debug级别通用日志打印，类似printf传入格式化字符串和参数
+
 
 #### 注册新事件
 
@@ -670,7 +116,7 @@ xqc_log_type_str(xqc_log_type_t type)
 }
 ```
 
-> 形如：\[事件类型\] = "事件名"
+> 形如：[事件类型] = "事件名"
 
 * 在xqc_log.c的xqc_log_type_2_level函数中设置事件的日志级别
 
@@ -717,7 +163,7 @@ xqc_log_implement(log, 事件类型, func, 日志格式, 打印参数);
 > 事件的具体打印内容和格式详见xqc_log_event_callback.c文件
 
 常用grep:
-> 过滤特定事件：grep "\[事件名\]"
+> 过滤特定事件：grep "[事件名]"
 >
 > 过滤特定连接：grep "|scid:所属连接的scid|"
 
