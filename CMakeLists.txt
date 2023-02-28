@@ -33,7 +33,7 @@ if(${SSL_TYPE} MATCHES "babassl")
 elseif(${SSL_TYPE} MATCHES "boringssl")
     # PATH of ssl
     if(NOT SSL_PATH)
-        set(SSL_PATH ${CMAKE_CURRENT_SOURCE_DIR}/third_party/boringssl)
+        set(SSL_PATH ${CMAKE_CURRENT_SOURCE_DIR}/../boringssl)
     endif()
 
     # ssl lib denpendency

@@ -330,7 +330,7 @@ xqc_client_write_socket(const unsigned char *buf, size_t size,
     if (g_test_case == 41) {
         /* delay short header packet to make server idle timeout */
         if ((buf[0] & 0xC0) == 0x40) {
-            sleep(2);
+            usleep(2 * 1000);
             g_test_case = -1;
         }
     }
