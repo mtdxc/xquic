@@ -283,6 +283,8 @@ if(PLATFORM MATCHES "mac")
         "-Wl"
         -lpthread
     )
+elseif (CMAKE_SYSTEM_NAME MATCHES "Windows")
+    target_link_libraries(xquic ${SSL_LIB_PATH})
 else()
     target_link_libraries(
         xquic
@@ -386,10 +388,10 @@ if (XQC_ENABLE_TESTING)
         target_link_libraries(demo_server xquic -lm -L/usr/local/lib -levent)
         target_link_libraries(demo_client xquic -lm -L/usr/local/lib -levent)
     elseif(CMAKE_SYSTEM_NAME  MATCHES "Windows")
-        target_link_libraries(test_server xquic ${EVENT_LIB_PATH} -lm)
-        target_link_libraries(test_client xquic ${EVENT_LIB_PATH} -lm)
-        target_link_libraries(demo_server xquic ${EVENT_LIB_PATH} -lm)
-        target_link_libraries(demo_client xquic ${EVENT_LIB_PATH} -lm)
+        target_link_libraries(test_server xquic ${EVENT_LIB_PATH})
+        target_link_libraries(test_client xquic ${EVENT_LIB_PATH})
+        target_link_libraries(demo_server xquic ${EVENT_LIB_PATH})
+        target_link_libraries(demo_client xquic ${EVENT_LIB_PATH})
     else()
         target_link_libraries(test_server xquic -levent -lm)
         target_link_libraries(test_client xquic -levent -lm)

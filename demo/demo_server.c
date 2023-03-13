@@ -23,15 +23,12 @@
 #include <third_party/wingetopt/src/getopt.h>
 #pragma comment(lib,"ws2_32.lib")
 #pragma comment(lib,"event.lib")
+#pragma comment(lib, "Bcrypt.lib")
 #pragma comment(lib, "Iphlpapi.lib")
 #endif
 
-
 #include "common.h"
 #include "xqc_hq.h"
-
-
-
 
 #define XQC_PACKET_TMP_BUF_LEN 1500
 #define MAX_BUF_SIZE (100*1024*1024)
@@ -66,7 +63,6 @@ typedef struct xqc_demo_svr_net_config_s {
     /* idle persist timeout */
     int     conn_timeout;
 } xqc_demo_svr_net_config_t;
-
 
 
 /**
@@ -107,15 +103,13 @@ typedef struct xqc_demo_svr_quic_config_s {
 #define PRIV_KEY_PATH "server.key"
 #define CERT_PEM_PATH "server.crt"
 
-
-
 /* environment config */
 typedef struct xqc_demo_svr_env_config_s {
     /* log path */
     char    log_path[PATH_LEN];
     int     log_level;
 
-    /* source file dir */
+    /* source file dir: www root */
     char    source_file_dir[RESOURCE_LEN];
 
     /* tls certs */
@@ -230,7 +224,6 @@ xqc_demo_svr_accept(xqc_engine_t *engine, xqc_connection_t *conn, const xqc_cid_
     void *eng_user_data)
 {
     DEBUG;
-
     return 0;
 }
 
@@ -330,10 +323,10 @@ void
 xqc_demo_svr_tls_key_cb(char *key, void *conn_user_data)
 {
     xqc_demo_svr_user_conn_t *user_conn = (xqc_demo_svr_user_conn_t*)conn_user_data;
-    if (user_conn->ctx->args->env_cfg.key_output_flag
-        && strlen(user_conn->ctx->args->env_cfg.key_out_path))
+    xqc_demo_svr_env_config_t *env_cfg = &user_conn->ctx->args->env_cfg;
+    if (env_cfg->key_output_flag && strlen(env_cfg->key_out_path))
     {
-        FILE* pkey = fopen(user_conn->ctx->args->env_cfg.key_out_path, "a+");
+        FILE* pkey = fopen(env_cfg->key_out_path, "a+");
         if (NULL == pkey) {
             return;
         }
@@ -449,6 +442,7 @@ xqc_demo_svr_hq_req_close_notify(xqc_hq_request_t *hqr, void *req_user_data)
 {
     DEBUG;
     xqc_demo_svr_user_stream_t *user_stream = (xqc_demo_svr_user_stream_t*)req_user_data;
+    free(user_stream->recv_buf);
     free(user_stream);
     return 0;
 }
@@ -669,6 +663,7 @@ xqc_demo_svr_h3_request_close_notify(xqc_h3_request_t *h3_request, void *strm_us
     DEBUG;
     xqc_demo_svr_user_stream_t *user_stream = (xqc_demo_svr_user_stream_t*)strm_user_data;
     xqc_demo_svr_close_user_stream_resource(user_stream);
+    free(user_stream->recv_buf);
     free(user_stream);
 
     return 0;

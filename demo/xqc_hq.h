@@ -36,34 +36,28 @@ typedef struct xqc_hq_conn_callbacks_s {
 } xqc_hq_conn_callbacks_t;
 
 
-typedef int (*xqc_hq_req_create_notify_pt)(xqc_hq_request_t *hq_req, void *req_user_data);
-
-typedef int (*xqc_hq_req_close_notify_pt)(xqc_hq_request_t *hq_req, void *req_user_data);
-
-typedef int (*xqc_hq_req_read_notify_pt)(xqc_hq_request_t *hq_req, void *req_user_data);
-
-typedef int (*xqc_hq_req_write_notify_pt)(xqc_hq_request_t *hq_req, void *req_user_data);
+typedef int (*xqc_hq_req_notify_pt)(xqc_hq_request_t *hq_req, void *req_user_data);
 
 typedef struct xqc_hq_request_callbacks_s {
     /**
      * stream create callback function. REQUIRED for server, OPTIONAL for client.
      */
-    xqc_hq_req_create_notify_pt         req_create_notify;
+    xqc_hq_req_notify_pt         req_create_notify;
 
     /**
      * stream close callback function. REQUIRED for both server and client.
      */
-    xqc_hq_req_close_notify_pt          req_close_notify;
+    xqc_hq_req_notify_pt          req_close_notify;
 
     /**
      * hq request read callback function. REQUIRED for both client and server
      */
-    xqc_hq_req_read_notify_pt           req_read_notify;
+    xqc_hq_req_notify_pt           req_read_notify;
 
     /**
      * stream write callback function. REQUIRED for both client and server
      */
-    xqc_hq_req_write_notify_pt          req_write_notify;
+    xqc_hq_req_notify_pt          req_write_notify;
 
 } xqc_hq_request_callbacks_t;
 

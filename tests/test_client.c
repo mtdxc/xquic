@@ -28,6 +28,7 @@
 #else
 #pragma comment(lib,"ws2_32.lib")
 #pragma comment(lib,"event.lib")
+#pragma comment(lib, "Bcrypt.lib")
 #pragma comment(lib, "Iphlpapi.lib")
 #include <third_party/wingetopt/src/getopt.h>
 #endif

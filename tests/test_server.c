@@ -25,12 +25,12 @@
 #include <third_party/wingetopt/src/getopt.h>
 #pragma comment(lib,"ws2_32.lib")
 #pragma comment(lib,"event.lib")
+#pragma comment(lib, "Bcrypt.lib")
 #pragma comment(lib, "Iphlpapi.lib")
 #endif
 
 #define XQC_FIRST_OCTET 1
-int
-printf_null(const char *format, ...)
+int printf_null(const char *format, ...)
 {
     return 0;
 }
@@ -124,8 +124,7 @@ static uint64_t last_snd_ts;
 #define XQC_TEST_LONG_HEADER_LEN 32769
 char test_long_value[XQC_TEST_LONG_HEADER_LEN] = {'\0'};
 
-void
-xqc_server_set_event_timer(xqc_msec_t wake_after, void *user_data)
+void xqc_server_set_event_timer(xqc_msec_t wake_after, void *user_data)
 {
     xqc_server_ctx_t *ctx = (xqc_server_ctx_t *) user_data;
 
@@ -133,11 +132,9 @@ xqc_server_set_event_timer(xqc_msec_t wake_after, void *user_data)
     tv.tv_sec = wake_after / 1000000;
     tv.tv_usec = wake_after % 1000000;
     event_add(ctx->ev_engine, &tv);
-
 }
 
-int
-read_file_data( char * data, size_t data_len, char *filename)
+int read_file_data(char * data, size_t data_len, char *filename)
 {
     int ret = 0;
     size_t total_len, read_len;
@@ -168,7 +165,6 @@ end:
         fclose(fp);
     }
     return ret;
-
 }
 
 int
@@ -374,7 +370,6 @@ xqc_server_stream_read_notify(xqc_stream_t *stream, void *user_data)
 int
 xqc_server_h3_conn_create_notify(xqc_h3_conn_t *h3_conn, const xqc_cid_t *cid, void *conn_user_data)
 {
-
     DEBUG;
     /* user_conn_t *user_conn = (xqc_server_ctx_t*)conn_user_data; */
 
@@ -391,7 +386,6 @@ xqc_server_h3_conn_create_notify(xqc_h3_conn_t *h3_conn, const xqc_cid_t *cid, v
 int
 xqc_server_h3_conn_close_notify(xqc_h3_conn_t *h3_conn, const xqc_cid_t *cid, void *conn_user_data)
 {
-
     DEBUG;
     user_conn_t *user_conn = (user_conn_t*)conn_user_data;
     xqc_conn_stats_t stats = xqc_conn_get_stats(ctx.engine, cid);
@@ -417,9 +411,7 @@ xqc_server_h3_conn_update_cid_notify(xqc_h3_conn_t *h3_conn, const xqc_cid_t *re
     const xqc_cid_t *new_cid, void *conn_user_data)
 {
     DEBUG;
-
     user_conn_t *user_conn = (user_conn_t *)conn_user_data;
-
     memcpy(&user_conn->cid, new_cid, sizeof(*new_cid));
 
     printf("====>RETIRE SCID:%s\n", xqc_scid_str(retire_cid));
@@ -571,12 +563,9 @@ int
 xqc_server_request_create_notify(xqc_h3_request_t *h3_request, void *strm_user_data)
 {
     DEBUG;
-    int ret = 0;
-
     user_stream_t *user_stream = calloc(1, sizeof(*user_stream));
     user_stream->h3_request = h3_request;
     xqc_h3_request_set_user_data(h3_request, user_stream);
-
     return 0;
 }
 
@@ -1064,7 +1053,6 @@ xqc_server_cid_generate(const xqc_cid_t *ori_cid, uint8_t *cid_buf, size_t cid_b
     memcpy(cid_buf, out_buf, cid_len);
 
     return cid_len;
-
 }
 
 
